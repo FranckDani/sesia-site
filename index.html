@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SESIA | Service Electricite Securite Informatique Automate</title>
+    <meta
+      name="description"
+      content="SESIA accompagne les particuliers, entreprises et sites industriels en electricite, securite, informatique et automatisme."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#accueil" aria-label="Accueil SESIA">
+        <img src="assets/sesia-logo.svg" alt="Logo SESIA">
+        <span>SESIA</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#projets">Projets</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="accueil">
+        <div class="hero-media" aria-hidden="true">
+          <img src="assets/sesia-logo.svg" alt="">
+        </div>
+        <div class="hero-content">
+          <p class="eyebrow">Service Electricite Securite Informatique Automate</p>
+          <h1>SESIA</h1>
+          <p class="lead">
+            Des solutions techniques fiables pour connecter, securiser et automatiser vos espaces
+            professionnels.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">Demander un devis</a>
+            <a class="button secondary" href="#services">Voir les services</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="services section" id="services">
+        <div class="section-heading">
+          <p class="eyebrow">Nos services</p>
+          <h2>Un partenaire unique pour vos installations essentielles</h2>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="icon">E</span>
+            <h3>Electricite</h3>
+            <p>Installation, maintenance, mise aux normes et depannage pour batiments et locaux techniques.</p>
+          </article>
+          <article class="service-card">
+            <span class="icon">S</span>
+            <h3>Securite</h3>
+            <p>Controle d'acces, videosurveillance, alarmes et dispositifs de protection adaptes a vos besoins.</p>
+          </article>
+          <article class="service-card">
+            <span class="icon">I</span>
+            <h3>Informatique</h3>
+            <p>Reseaux, cablage, assistance, configuration et accompagnement pour vos outils numeriques.</p>
+          </article>
+          <article class="service-card">
+            <span class="icon">A</span>
+            <h3>Automate</h3>
+            <p>Automatisation, pilotage, tableaux de commande et optimisation de vos processus techniques.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="expertise section" id="expertise">
+        <div class="expertise-copy">
+          <p class="eyebrow">Methode SESIA</p>
+          <h2>Clarte, rapidite et suivi sur le terrain</h2>
+          <p>
+            SESIA intervient avec une approche pratique : diagnostic precis, proposition claire,
+            installation soignee et accompagnement apres livraison.
+          </p>
+        </div>
+        <div class="stats">
+          <div>
+            <strong>01</strong>
+            <span>Etude du besoin</span>
+          </div>
+          <div>
+            <strong>02</strong>
+            <span>Installation maitrisee</span>
+          </div>
+          <div>
+            <strong>03</strong>
+            <span>Maintenance reactive</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects section" id="projets">
+        <div class="section-heading">
+          <p class="eyebrow">Applications</p>
+          <h2>Des solutions pour plusieurs environnements</h2>
+        </div>
+        <div class="project-list">
+          <article>
+            <h3>Bureaux et commerces</h3>
+            <p>Electricite, reseau informatique, cameras et controle d'acces pour des espaces operationnels.</p>
+          </article>
+          <article>
+            <h3>Sites industriels</h3>
+            <p>Automatismes, tableaux electriques et supervision pour fiabiliser les installations techniques.</p>
+          </article>
+          <article>
+            <h3>Residences et immeubles</h3>
+            <p>Interphonie, securite, cablage et maintenance pour ameliorer le confort et la protection.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Parlons de votre projet</h2>
+          <p>
+            Envoyez vos coordonnees et le type d'intervention souhaite. SESIA vous recontacte pour
+            evaluer la solution la plus adaptee.
+          </p>
+        </div>
+        <form class="contact-form">
+          <label>
+            Nom complet
+            <input type="text" name="name" placeholder="Votre nom" required>
+          </label>
+          <label>
+            Telephone
+            <input type="tel" name="phone" placeholder="+212 6 00 00 00 00" required>
+          </label>
+          <label>
+            Service souhaite
+            <select name="service" required>
+              <option value="">Choisir un service</option>
+              <option>Electricite</option>
+              <option>Securite</option>
+              <option>Informatique</option>
+              <option>Automate</option>
+            </select>
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="4" placeholder="Decrivez votre besoin"></textarea>
+          </label>
+          <button class="button primary" type="submit">Envoyer la demande</button>
+          <p class="form-note" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>SESIA</span>
+      <p>Service Electricite Securite Informatique Automate</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
