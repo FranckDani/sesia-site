@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">Logo SESIA</title>
+  <desc id="desc">Logo SESIA Service Electricite Securite Informatique Automate</desc>
+  <rect width="600" height="600" fill="#ffffff"/>
+  <circle cx="300" cy="300" r="252" fill="#ffffff" stroke="#111111" stroke-width="4"/>
+  <circle cx="300" cy="300" r="166" fill="#ffffff" stroke="#0717e8" stroke-width="34"/>
+  <path d="M166 99c75-45 194-45 268 0l-28 74c-58-34-154-34-212 0z" fill="#0717e8" stroke="#111111" stroke-width="3"/>
+  <path d="M116 30l47 171 68-35-17 85-107-38z" fill="#f20505" stroke="#07105c" stroke-width="3"/>
+  <path d="M484 30l-47 171-68-35 17 85 107-38z" fill="#f20505" stroke="#07105c" stroke-width="3"/>
+  <text x="300" y="148" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="900" letter-spacing="18" transform="rotate(0 300 148)">SESIA</text>
+  <text x="300" y="356" text-anchor="middle" fill="#0717e8" font-family="Arial, Helvetica, sans-serif" font-size="210" font-weight="900">@</text>
+  <path id="bottomArc" d="M102 352a210 210 0 0 0 396 0" fill="none"/>
+  <text font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="900">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">
+      <tspan fill="#0717e8">Service Electricite </tspan>
+      <tspan fill="#f20505">Securite </tspan>
+      <tspan fill="#0717e8">Informatique </tspan>
+      <tspan fill="#f20505">Automate</tspan>
+    </textPath>
+  </text>
+</svg>
