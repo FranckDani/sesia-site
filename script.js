@@ -81,26 +81,27 @@ ${data.get("message") || "A preciser"}
   form.reset();
 });
 
-// ===== 🔥 CARROUSEL INFINI RÉEL =====
+window.addEventListener("load", () => {
 
-const track = document.querySelector(".carousel-track");
-const nextBtn = document.querySelector(".next");
-const prevBtn = document.querySelector(".prev");
+  const track = document.querySelector(".carousel-track");
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
 
-// sécurité si carousel absent
-if (track && nextBtn && prevBtn) {
+  if (!track || !nextBtn || !prevBtn) return;
 
   let slides = Array.from(track.children);
-  const slideWidth = slides[0].offsetWidth + 20;
+
+  // 🔥 largeur exacte (avec margin)
+  const slideWidth = slides[0].getBoundingClientRect().width + 20;
 
   let index = 0;
 
-  // 🔥 CLONAGE AUTOMATIQUE
+  // 🔥 CLONAGE
   const clonesStart = slides.slice(0, 3).map(el => el.cloneNode(true));
   const clonesEnd = slides.slice(-3).map(el => el.cloneNode(true));
 
   clonesStart.forEach(clone => track.appendChild(clone));
-  clonesEnd.reverse().forEach(clone => track.insertBefore(clone, track.firstChild));
+  clonesEnd.reverse().forEach(clone => track.prepend(clone));
 
   slides = Array.from(track.children);
 
@@ -108,7 +109,7 @@ if (track && nextBtn && prevBtn) {
   index = 3;
   track.style.transform = `translateX(-${index * slideWidth}px)`;
 
-  // ===== FONCTIONS =====
+  // ===== NAVIGATION =====
   function moveNext() {
     index++;
     track.style.transition = "0.5s ease";
@@ -121,19 +122,20 @@ if (track && nextBtn && prevBtn) {
     track.style.transform = `translateX(-${index * slideWidth}px)`;
   }
 
-  // ===== BOUTONS =====
-  nextBtn.addEventListener("click", moveNext);
-  prevBtn.addEventListener("click", movePrev);
+  nextBtn.onclick = moveNext;
+  prevBtn.onclick = movePrev;
 
-  // ===== RESET INVISIBLE (MAGIE 🔥) =====
+  // ===== RESET INVISIBLE =====
   track.addEventListener("transitionend", () => {
 
+    // aller à la fin → reset au début
     if (index >= slides.length - 3) {
       track.style.transition = "none";
       index = 3;
       track.style.transform = `translateX(-${index * slideWidth}px)`;
     }
 
+    // aller au début → reset à la fin
     if (index <= 0) {
       track.style.transition = "none";
       index = slides.length - 6;
@@ -145,13 +147,12 @@ if (track && nextBtn && prevBtn) {
   // ===== AUTOPLAY =====
   let auto = setInterval(moveNext, 2500);
 
-  // pause au hover
   track.addEventListener("mouseenter", () => clearInterval(auto));
   track.addEventListener("mouseleave", () => {
     auto = setInterval(moveNext, 2500);
   });
 
-  // ===== SWIPE MOBILE =====
+  // ===== SWIPE =====
   let startX = 0;
 
   track.addEventListener("touchstart", (e) => {
@@ -165,4 +166,4 @@ if (track && nextBtn && prevBtn) {
     else movePrev();
   });
 
-}
+});
