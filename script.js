@@ -81,50 +81,88 @@ ${data.get("message") || "A preciser"}
   form.reset();
 });
 
-// ===== 🔥 CARROUSEL PREMIUM =====
+// ===== 🔥 CARROUSEL INFINI RÉEL =====
+
 const track = document.querySelector(".carousel-track");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 
-let position = 0;
-const slideWidth = 320;
+// sécurité si carousel absent
+if (track && nextBtn && prevBtn) {
 
-// autoplay
-let autoSlide = setInterval(moveNext, 2500);
+  let slides = Array.from(track.children);
+  const slideWidth = slides[0].offsetWidth + 20;
 
-function moveNext() {
-  position -= slideWidth;
-  track.style.transform = `translateX(${position}px)`;
-}
+  let index = 0;
 
-function movePrev() {
-  position += slideWidth;
-  track.style.transform = `translateX(${position}px)`;
-}
+  // 🔥 CLONAGE AUTOMATIQUE
+  const clonesStart = slides.slice(0, 3).map(el => el.cloneNode(true));
+  const clonesEnd = slides.slice(-3).map(el => el.cloneNode(true));
 
-// boutons
-nextBtn.addEventListener("click", moveNext);
-prevBtn.addEventListener("click", movePrev);
+  clonesStart.forEach(clone => track.appendChild(clone));
+  clonesEnd.reverse().forEach(clone => track.insertBefore(clone, track.firstChild));
 
-// pause au hover
-track.addEventListener("mouseenter", () => clearInterval(autoSlide));
-track.addEventListener("mouseleave", () => {
-  autoSlide = setInterval(moveNext, 2500);
-});
+  slides = Array.from(track.children);
 
-// swipe mobile
-let startX = 0;
+  // position initiale
+  index = 3;
+  track.style.transform = `translateX(-${index * slideWidth}px)`;
 
-track.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-});
-
-track.addEventListener("touchend", (e) => {
-  let endX = e.changedTouches[0].clientX;
-
-  if (startX > endX) {
-    moveNext();
-  } else {
-    movePrev();
+  // ===== FONCTIONS =====
+  function moveNext() {
+    index++;
+    track.style.transition = "0.5s ease";
+    track.style.transform = `translateX(-${index * slideWidth}px)`;
   }
-});
+
+  function movePrev() {
+    index--;
+    track.style.transition = "0.5s ease";
+    track.style.transform = `translateX(-${index * slideWidth}px)`;
+  }
+
+  // ===== BOUTONS =====
+  nextBtn.addEventListener("click", moveNext);
+  prevBtn.addEventListener("click", movePrev);
+
+  // ===== RESET INVISIBLE (MAGIE 🔥) =====
+  track.addEventListener("transitionend", () => {
+
+    if (index >= slides.length - 3) {
+      track.style.transition = "none";
+      index = 3;
+      track.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    if (index <= 0) {
+      track.style.transition = "none";
+      index = slides.length - 6;
+      track.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+  });
+
+  // ===== AUTOPLAY =====
+  let auto = setInterval(moveNext, 2500);
+
+  // pause au hover
+  track.addEventListener("mouseenter", () => clearInterval(auto));
+  track.addEventListener("mouseleave", () => {
+    auto = setInterval(moveNext, 2500);
+  });
+
+  // ===== SWIPE MOBILE =====
+  let startX = 0;
+
+  track.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  track.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;
+
+    if (startX > endX) moveNext();
+    else movePrev();
+  });
+
+}
