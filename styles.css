@@ -659,21 +659,22 @@ h3 {
 
 .slides {
   display: flex;
-  width: 700%;
-  animation: slide 25s infinite;
+  width: max-content; /* 👈 important */
+  animation: scroll 25s linear infinite;
 }
 
 .slides img {
-  width: 100%;
+  width: 300px; /* 👈 taille fixe pour fluidité */
   height: 400px;
   object-fit: cover;
+  margin-right: 10px;
 }
 
-@keyframes slide {
-  0%, 15% { transform: translateX(0); }
-  20%, 35% { transform: translateX(-100%); }
-  40%, 55% { transform: translateX(-200%); }
-  60%, 75% { transform: translateX(-300%); }
-  80%, 95% { transform: translateX(-400%); }
-  100% { transform: translateX(0); }
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
