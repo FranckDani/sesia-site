@@ -651,30 +651,43 @@ h3 {
 }
 
 .carousel {
-  width: 100%;
+  position: relative;
   overflow: hidden;
   border-radius: 12px;
-  margin-top: 20px;
 }
 
-.slides {
+.carousel-track {
   display: flex;
-  width: max-content; /* 👈 important */
-  animation: scroll 25s linear infinite;
+  transition: transform 0.5s ease;
 }
 
-.slides img {
-  width: 300px; /* 👈 taille fixe pour fluidité */
+.carousel-track img {
+  width: 300px;
   height: 400px;
   object-fit: cover;
-  margin-right: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+/* zoom effet */
+.carousel-track img:hover {
+  transform: scale(1.1);
 }
+
+/* boutons */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
