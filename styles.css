@@ -130,11 +130,11 @@ a {
   color: #fff;
   background:
     linear-gradient(115deg, rgba(7, 16, 92, 0.94), rgba(7, 23, 232, 0.72)),
-    url("assets/sesia-logo.svg") center / cover;
+    url('assets/sesia-logo.svg?v=2') center / cover;
 }
 
 .hero::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: auto 0 0;
   height: 18%;
@@ -360,7 +360,7 @@ h3 {
 }
 
 .intervention-list li::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0.68em;
@@ -468,7 +468,7 @@ h3 {
   color: #fff;
   background:
     linear-gradient(145deg, rgba(7, 16, 92, 0.94), rgba(242, 5, 5, 0.64)),
-    url("assets/sesia-logo.svg") center / cover;
+    url('assets/sesia-logo.svg?v=2') center / cover;
   box-shadow: var(--shadow);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
