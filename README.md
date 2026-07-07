@@ -1,6 +1,6 @@
 # SESIA Site
 
-Site web vitrine dynamique pour SESIA au Burkina Faso : Service Electricite Securite Informatique Automate.
+Site web vitrine dynamique pour SESIA au Burkina Faso : Service Électricité Sécurité Informatique Automate.
 
 ## Contact
 
