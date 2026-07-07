@@ -67,11 +67,11 @@ form.addEventListener("submit", (event) => {
 
   const body = `
 Nom : ${data.get("name")}
-Telephone : ${data.get("phone")}
+Téléphone : ${data.get("phone")}
 Service : ${data.get("service")}
 
 Message :
-${data.get("message") || "A preciser"}
+${data.get("message") || "À préciser"}
 `;
 
   note.textContent = "Votre email est prêt...";
